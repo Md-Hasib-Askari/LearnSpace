@@ -1,4 +1,4 @@
-# LearningPlatform
+# LearnSpace
 
 An ASP.NET Core Web API for managing online courses, lessons, quizzes, and student progress.
 
@@ -31,8 +31,8 @@ The solution follows an **N-Tier** pattern with strict separation of concerns:
 
 ```mermaid
 flowchart TD
-    A[LearningPlatform.API] --> B[LearningPlatform.Business]
-    B --> C[LearningPlatform.Data]
+    A[LearnSpace.API] --> B[LearnSpace.Business]
+    B --> C[LearnSpace.Data]
     A -->|Controllers, middleware, auth| A
     B -->|Services, DTOs, AutoMapper| B
     C -->|EF Core, entities, repositories| C
@@ -73,13 +73,13 @@ docker compose up -d
 ### 2. Apply database migrations
 
 ```bash
-dotnet ef database update --project LearningPlatform.Data/ --startup-project LearningPlatform.API/
+dotnet ef database update --project LearnSpace.Data/ --startup-project LearnSpace.API/
 ```
 
 ### 3. Run the API
 
 ```bash
-dotnet run --project LearningPlatform.API/
+dotnet run --project LearnSpace.API/
 ```
 
 The API starts at `http://localhost:5255`. Swagger UI is available at `/swagger`.
@@ -93,7 +93,7 @@ curl http://localhost:5255/health
 
 ## Configuration
 
-All settings live in `LearningPlatform.API/appsettings.json`:
+All settings live in `LearnSpace.API/appsettings.json`:
 
 | Section              | Purpose                          |
 |----------------------|----------------------------------|
@@ -129,10 +129,10 @@ Override per-environment using `appsettings.Development.json` or environment var
 ## Project Structure
 
 ```
-LearningPlatform/
-├── LearningPlatform.sln
+LearnSpace/
+├── LearnSpace.sln
 ├── docker-compose.yml
-├── LearningPlatform.API/
+├── LearnSpace.API/
 │   ├── Program.cs
 │   ├── appsettings.json
 │   └── Controllers/
@@ -143,14 +143,14 @@ LearningPlatform/
 │       ├── ModuleController.cs
 │       ├── QuizController.cs
 │       └── UserController.cs
-├── LearningPlatform.Business/
+├── LearnSpace.Business/
 │   ├── DTOs/
 │   ├── Interfaces/
 │   ├── Mappers/
 │   ├── Services/
 │   ├── Config/
 │   └── Utils/
-└── LearningPlatform.Data/
+└── LearnSpace.Data/
     ├── Context/
     ├── Domain/
     │   ├── Entities/
@@ -166,8 +166,8 @@ Entity Framework Core manages the schema via code-first migrations. New migratio
 
 ```bash
 dotnet ef migrations add <MigrationName> \
-    --project LearningPlatform.Data/ \
-    --startup-project LearningPlatform.API/
+    --project LearnSpace.Data/ \
+    --startup-project LearnSpace.API/
 ```
 
 A schema diagram is available in [`DB_Schema.png`](./DB_Schema.png).
