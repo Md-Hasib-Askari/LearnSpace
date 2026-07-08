@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
+
+using LearnSpace.Data.Domain.Common;
+namespace LearnSpace.Data.Domain.Entities;
 public class Module : BaseEntity
 {
     public string Title { get; private set; } = null!;

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
+using LearnSpace.Data.Domain.Entities;
 namespace LearnSpace.Data.Context;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)

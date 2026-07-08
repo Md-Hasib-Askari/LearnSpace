@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Responses.Quiz;
 public class QuizResultResponse
 {
     public Guid AttemptId { get; set; }

@@ -1,5 +1,7 @@
 using LearnSpace.Data.Domain.Enums;
 
+
+namespace LearnSpace.Business.DTOs.Responses.User;
 public sealed class UserDto
 {
     public Guid Id { get; set; }

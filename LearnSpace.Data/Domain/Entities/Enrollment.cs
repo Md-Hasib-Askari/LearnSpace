@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
+
+using LearnSpace.Data.Domain.Common;
+namespace LearnSpace.Data.Domain.Entities;
 public class Enrollment : BaseEntity
 {
     public DateTime EnrolledAt { get; private set; }

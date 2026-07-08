@@ -1,6 +1,26 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+
+using LearnSpace.Business.Interfaces;
+using LearnSpace.Business.DTOs.Requests.Auth;
+using LearnSpace.Business.DTOs.Requests.Course;
+using LearnSpace.Business.DTOs.Requests.Lesson;
+using LearnSpace.Business.DTOs.Requests.Module;
+using LearnSpace.Business.DTOs.Requests.Quiz;
+using LearnSpace.Business.DTOs.Requests.User;
+using LearnSpace.Business.DTOs.Responses.Course;
+using LearnSpace.Business.DTOs.Responses.Lesson;
+using LearnSpace.Business.DTOs.Responses.Module;
+using LearnSpace.Business.DTOs.Responses.Quiz;
+using LearnSpace.Business.DTOs.Responses.Enrollment;
+using LearnSpace.Business.DTOs.Responses.User;
+using LearnSpace.Business.DTOs.Responses.Auth;
+using LearnSpace.Business.Utils;
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.API.Controllers;
 [ApiController]
+[Authorize(Roles = "Admin,Staff,Instructor")]
 public class LessonController : ControllerBase
 {
     private readonly ILessonService _lessonService;
@@ -11,6 +31,7 @@ public class LessonController : ControllerBase
     }
 
     [HttpGet("modules/{moduleId:guid}/lessons")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetLessonsByModuleId(Guid moduleId, CancellationToken cancellationToken)
     {
         var lessons = await _lessonService.GetLessonsByModuleIdAsync(moduleId, cancellationToken);

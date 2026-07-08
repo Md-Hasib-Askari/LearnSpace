@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
+
+namespace LearnSpace.Business.DTOs.Requests.User;
 public sealed class UpdateUserDto
 {
     [StringLength(50, MinimumLength = 2)]

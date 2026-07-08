@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.Config;
 public sealed class EmailSettings
 {
     public string SmtpHost { get; init; } = default!;

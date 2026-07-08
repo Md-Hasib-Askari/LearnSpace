@@ -3,6 +3,24 @@ using LearnSpace.Business.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using LearnSpace.Business.DTOs.Requests.Auth;
+using LearnSpace.Business.DTOs.Requests.Course;
+using LearnSpace.Business.DTOs.Requests.Lesson;
+using LearnSpace.Business.DTOs.Requests.Module;
+using LearnSpace.Business.DTOs.Requests.Quiz;
+using LearnSpace.Business.DTOs.Requests.User;
+using LearnSpace.Business.DTOs.Responses.Course;
+using LearnSpace.Business.DTOs.Responses.Lesson;
+using LearnSpace.Business.DTOs.Responses.Module;
+using LearnSpace.Business.DTOs.Responses.Quiz;
+using LearnSpace.Business.DTOs.Responses.Enrollment;
+using LearnSpace.Business.DTOs.Responses.User;
+using LearnSpace.Business.DTOs.Responses.Auth;
+using LearnSpace.Business.Utils;
+using LearnSpace.Data.Domain.Entities;
+using LearnSpace.Business.DTOs.Common;
+namespace LearnSpace.API.Controllers;
+
 [ApiController]
 [Route("auth")]
 public class AuthController : ControllerBase
@@ -43,7 +61,9 @@ public class AuthController : ControllerBase
         {
             return Ok(new LoginResponse { Success = true, Token = token });
         }
-        return Unauthorized(new LoginResponse { Success = false, ErrorMessage = "Invalid email or password." });
+        return Unauthorized(
+            new LoginResponse { Success = false, ErrorMessage = "Invalid email or password." }
+        );
     }
 
     [HttpPost("forgot-password")]
@@ -72,11 +92,14 @@ public class AuthController : ControllerBase
     [HttpGet("test")]
     public IActionResult AuthTest()
     {
-        return Ok(new
-        {
-            User = User.Identity?.Name,
-            Claims = User.Claims.Select(c => new { c.Type, c.Value }),
-            Role = User.FindFirst(ClaimTypes.Role)?.Value
-        });
+        return Ok(
+            new
+            {
+                User = User.Identity?.Name,
+                Claims = User.Claims.Select(c => new { c.Type, c.Value }),
+                Role = User.FindFirst(ClaimTypes.Role)?.Value,
+            }
+        );
     }
 }
+

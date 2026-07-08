@@ -1,3 +1,6 @@
+
+using LearnSpace.Data.Domain.Common;
+namespace LearnSpace.Data.Domain.Entities;
 public class AttemptAnswer : BaseEntity
 {
     public Guid AttemptId { get; set; }

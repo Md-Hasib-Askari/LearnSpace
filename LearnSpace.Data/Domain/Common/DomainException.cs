@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Data.Domain.Common;
 public sealed class DomainException : Exception
 {
     public DomainException(string message)

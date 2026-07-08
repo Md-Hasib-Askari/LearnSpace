@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Requests.Quiz;
 public class AddOptionDto
 {
     public Guid QuestionId { get; set; }

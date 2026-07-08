@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Responses.Course;
 public class CourseDto
 {
     public Guid Id { get; set; }

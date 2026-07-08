@@ -5,6 +5,24 @@ using LearnSpace.Data.Domain.Enums;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
+
+using LearnSpace.Business.DTOs.Requests.Auth;
+using LearnSpace.Business.DTOs.Requests.Course;
+using LearnSpace.Business.DTOs.Requests.Lesson;
+using LearnSpace.Business.DTOs.Requests.Module;
+using LearnSpace.Business.DTOs.Requests.Quiz;
+using LearnSpace.Business.DTOs.Requests.User;
+using LearnSpace.Business.DTOs.Responses.Course;
+using LearnSpace.Business.DTOs.Responses.Lesson;
+using LearnSpace.Business.DTOs.Responses.Module;
+using LearnSpace.Business.DTOs.Responses.Quiz;
+using LearnSpace.Business.DTOs.Responses.Enrollment;
+using LearnSpace.Business.DTOs.Responses.User;
+using LearnSpace.Business.DTOs.Responses.Auth;
+using LearnSpace.Business.Config;
+using LearnSpace.Business.Utils;
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.Business.Services;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;

@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Requests.Lesson;
 public class UpdateLessonDto
 {
     public string Title { get; set; } = null!;

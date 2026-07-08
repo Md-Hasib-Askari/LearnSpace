@@ -3,6 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+
+using LearnSpace.Business.Services;
+namespace LearnSpace.Business.Config;
 public static class BusinessDependencyInjection
 {
     public static IServiceCollection AddBusinessServices(

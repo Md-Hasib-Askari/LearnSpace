@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Requests.Module;
 public class CreateModuleDto
 {
     public string Title { get; set; } = null!;

@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.Config;
 public sealed class JwtSettings
 {
     public string SecretKey { get; set; } = null!;

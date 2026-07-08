@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
+
+using LearnSpace.Data.Domain.Common;
+namespace LearnSpace.Data.Domain.Entities;
 public class Question : BaseEntity
 {
     public Guid QuizId { get; private set; }

@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Responses.Lesson;
 public class LessonDto
 {
 

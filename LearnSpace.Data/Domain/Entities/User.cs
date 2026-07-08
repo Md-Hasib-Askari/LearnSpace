@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using LearnSpace.Data.Domain.Enums;
 
+
+using LearnSpace.Data.Domain.Common;
+namespace LearnSpace.Data.Domain.Entities;
 public class User : BaseEntity
 {
     [Required]

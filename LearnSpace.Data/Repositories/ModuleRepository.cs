@@ -1,6 +1,10 @@
 using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
+
+using LearnSpace.Data.Domain.Entities;
+using LearnSpace.Data.Interfaces;
+namespace LearnSpace.Data.Repositories;
 public class ModuleRepository : IModuleRepository
 {
     private readonly AppDbContext _db;

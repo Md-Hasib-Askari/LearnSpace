@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Requests.Quiz;
 public class UpdateOptionDto
 {
     public Guid OptionId { get; set; }

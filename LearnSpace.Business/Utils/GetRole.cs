@@ -1,5 +1,7 @@
 using LearnSpace.Data.Domain.Enums;
 
+
+namespace LearnSpace.Business.Utils;
 public static class GetRole
 {
     public static string GetRoleName(RoleEnum role)

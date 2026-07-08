@@ -1,9 +1,12 @@
+using LearnSpace.Data.Repositories;
 using LearnSpace.Data.Context;
 using LearnSpace.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
+namespace LearnSpace.Data.Config;
 public static class DataDependencyInjection
 {
     public static IServiceCollection AddDataServices(

@@ -1,5 +1,6 @@
 using LearnSpace.Data.Domain.Enums;
 
+using LearnSpace.Data.Domain.Entities;
 namespace LearnSpace.Data.Interfaces;
 
 public interface IUserRepository : IGenericRepository<User>

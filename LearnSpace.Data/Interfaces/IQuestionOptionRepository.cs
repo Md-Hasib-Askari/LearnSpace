@@ -1,5 +1,8 @@
 using LearnSpace.Data.Interfaces;
 
+
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.Data.Interfaces;
 public interface IQuestionOptionRepository : IGenericRepository<QuestionOption>
 {
     Task<QuestionOption> AddOptionToQuestionAsync(QuestionOption option, CancellationToken cancellationToken = default);

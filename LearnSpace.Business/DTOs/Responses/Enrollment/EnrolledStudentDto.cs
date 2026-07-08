@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Business.DTOs.Responses.Enrollment;
 public class EnrolledStudentDto
 {
     public Guid UserId { get; set; }

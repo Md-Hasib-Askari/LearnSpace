@@ -1,3 +1,4 @@
+using LearnSpace.Data.Domain.Entities;
 namespace LearnSpace.Data.Interfaces;
 
 public interface IGenericRepository<T> where T : class

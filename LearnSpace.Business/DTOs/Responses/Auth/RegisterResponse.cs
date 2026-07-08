@@ -1,3 +1,6 @@
+
+using LearnSpace.Business.DTOs.Common;
+namespace LearnSpace.Business.DTOs.Responses.Auth;
 public class RegisterResponse : BaseResponse
 {
     public Guid UserId { get; set; }

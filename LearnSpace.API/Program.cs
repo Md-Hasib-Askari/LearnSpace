@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+using LearnSpace.Business.Config;
+using LearnSpace.Data.Config;
+using LearnSpace.Business.Mappers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Jwt Settings
@@ -60,6 +63,21 @@ builder.Services.AddSwaggerGen(options =>
             Name = "Md. Hasib Askari",
             Url = new Uri("https://linkedin.com/in/mdhasibaskari")
         }
+    });
+
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.ParameterLocation.Header,
+        Description = "Enter your JWT Bearer token"
+    });
+
+    options.AddSecurityRequirement(_ => new Microsoft.OpenApi.OpenApiSecurityRequirement
+    {
+        { new Microsoft.OpenApi.OpenApiSecuritySchemeReference("Bearer"), new List<string>() }
     });
 });
 

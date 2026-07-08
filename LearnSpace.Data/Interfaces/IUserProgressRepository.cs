@@ -1,5 +1,8 @@
 using LearnSpace.Data.Interfaces;
 
+
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.Data.Interfaces;
 public interface IUserProgressRepository : IGenericRepository<UserProgress>
 {
     Task<UserProgress?> GetByUserAndLessonAsync(Guid userId, Guid lessonId);

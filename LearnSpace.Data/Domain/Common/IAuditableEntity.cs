@@ -1,3 +1,5 @@
+
+namespace LearnSpace.Data.Domain.Common;
 public interface IAuditableEntity
 {
     DateTime CreatedAt { get; set; }

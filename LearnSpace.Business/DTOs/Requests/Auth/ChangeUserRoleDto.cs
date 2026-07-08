@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using LearnSpace.Data.Domain.Enums;
 
+
+namespace LearnSpace.Business.DTOs.Requests.Auth;
 public sealed class ChangeUserRoleDto
 {
     [Required]

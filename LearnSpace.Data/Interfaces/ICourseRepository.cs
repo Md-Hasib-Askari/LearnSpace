@@ -1,5 +1,8 @@
 using LearnSpace.Data.Interfaces;
 
+
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.Data.Interfaces;
 public interface ICourseRepository : IGenericRepository<Course>
 {
     Task<IEnumerable<Course>> GetCoursesByInstructorIdAsync(Guid instructorId, CancellationToken cancellationToken = default);

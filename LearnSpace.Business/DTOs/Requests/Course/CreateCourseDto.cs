@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
+
+namespace LearnSpace.Business.DTOs.Requests.Course;
 public sealed class CreateCourseDto
 {
     [Required]

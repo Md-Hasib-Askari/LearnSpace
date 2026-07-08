@@ -2,6 +2,9 @@ using LearnSpace.Data.Context;
 using LearnSpace.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
+
+using LearnSpace.Data.Domain.Entities;
+namespace LearnSpace.Data.Repositories;
 public class CourseRepository : IGenericRepository<Course>, ICourseRepository
 {
     private readonly AppDbContext _db;
