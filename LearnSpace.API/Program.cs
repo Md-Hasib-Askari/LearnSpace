@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using LearnSpace.Data.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -47,12 +48,24 @@ builder.Services.AddDataServices(builder.Configuration).AddBusinessServices(buil
 
 // OpenAPI / Swagger Configuration
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new()
+    {
+        Title = "LearnSpace API",
+        Version = "v1",
+        Description = "An online learning platform API built with ASP.NET Core 10",
+        Contact = new()
+        {
+            Name = "Md. Hasib Askari",
+            Url = new Uri("https://linkedin.com/in/mdhasibaskari")
+        }
+    });
+});
 
 // AutoMapper Configuration
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -60,7 +73,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.MapOpenApi();
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "LearnSpace API v1");
+    options.RoutePrefix = string.Empty;
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
