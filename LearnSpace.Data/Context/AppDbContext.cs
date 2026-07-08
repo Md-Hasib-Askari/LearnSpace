@@ -1,11 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
-public class ApplicationDbContext : DbContext
-{
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
-    }
+namespace LearnSpace.Data.Context;
 
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+{
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Course> Courses { get; set; } = null!;
     public DbSet<Module> Modules { get; set; } = null!;
@@ -22,11 +20,10 @@ public class ApplicationDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<User>()
-            .HasIndex(u => u.Email)
-            .IsUnique();
+        modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
 
-        modelBuilder.Entity<Course>()
+        modelBuilder
+            .Entity<Course>()
             .HasOne(c => c.Instructor)
             .WithMany()
             .HasForeignKey(c => c.InstructorId)

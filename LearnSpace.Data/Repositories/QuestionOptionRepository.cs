@@ -1,9 +1,10 @@
+using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 public class QuestionOptionRepository : IQuestionOptionRepository
 {
-    private readonly ApplicationDbContext _db;
-    public QuestionOptionRepository(ApplicationDbContext db)
+    private readonly AppDbContext _db;
+    public QuestionOptionRepository(AppDbContext db)
     {
         _db = db;
     }

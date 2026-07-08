@@ -1,10 +1,11 @@
+using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 public class QuizAttemptRepository : IQuizAttemptRepository
 {
-    private readonly ApplicationDbContext _db;
+    private readonly AppDbContext _db;
 
-    public QuizAttemptRepository(ApplicationDbContext db)
+    public QuizAttemptRepository(AppDbContext db)
     {
         _db = db;
     }

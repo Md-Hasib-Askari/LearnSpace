@@ -1,10 +1,11 @@
+using LearnSpace.Data.Context;
 using LearnSpace.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 public class CourseRepository : IGenericRepository<Course>, ICourseRepository
 {
-    private readonly ApplicationDbContext _db;
-    public CourseRepository(ApplicationDbContext context) { _db = context; }
+    private readonly AppDbContext _db;
+    public CourseRepository(AppDbContext context) { _db = context; }
 
     public async Task AddAsync(Course entity, CancellationToken cancellationToken = default)
     {

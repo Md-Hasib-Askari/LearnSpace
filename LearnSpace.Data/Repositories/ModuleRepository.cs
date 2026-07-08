@@ -1,10 +1,11 @@
+using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 public class ModuleRepository : IModuleRepository
 {
-    private readonly ApplicationDbContext _db;
+    private readonly AppDbContext _db;
 
-    public ModuleRepository(ApplicationDbContext db)
+    public ModuleRepository(AppDbContext db)
     {
         _db = db;
     }

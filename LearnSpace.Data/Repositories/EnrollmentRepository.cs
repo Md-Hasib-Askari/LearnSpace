@@ -1,9 +1,10 @@
+using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 public class EnrollmentRepository : IEnrollmentRepository
 {
-    private readonly ApplicationDbContext _db;
-    public EnrollmentRepository(ApplicationDbContext dbContext)
+    private readonly AppDbContext _db;
+    public EnrollmentRepository(AppDbContext dbContext)
     {
         _db = dbContext;
     }

@@ -1,12 +1,13 @@
+using LearnSpace.Data.Context;
 using LearnSpace.Data.Domain.Enums;
 using LearnSpace.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 public class UserRepository : IGenericRepository<User>, IUserRepository
 {
-    private readonly ApplicationDbContext _context;
+    private readonly AppDbContext _context;
 
-    public UserRepository(ApplicationDbContext context)
+    public UserRepository(AppDbContext context)
     {
         _context = context;
     }

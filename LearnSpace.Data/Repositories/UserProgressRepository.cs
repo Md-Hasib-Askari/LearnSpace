@@ -1,9 +1,10 @@
+using LearnSpace.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 public class UserProgressRepository : IUserProgressRepository
 {
-    private readonly ApplicationDbContext _db;
-    public UserProgressRepository(ApplicationDbContext context)
+    private readonly AppDbContext _db;
+    public UserProgressRepository(AppDbContext context)
     {
         _db = context;
     }

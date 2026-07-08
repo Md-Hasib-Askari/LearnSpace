@@ -1,3 +1,4 @@
+using LearnSpace.Data.Context;
 using LearnSpace.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,7 @@ public static class DataDependencyInjection
         IConfiguration configuration)
     {
         // Database Configuration
-        services.AddDbContext<ApplicationDbContext>(options =>
+        services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
         // Repository Registrations
