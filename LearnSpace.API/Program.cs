@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using LearnSpace.Business.Config;
 using LearnSpace.Data.Config;
 using LearnSpace.Business.Mappers;
+using Microsoft.AspNetCore.RateLimiting;
 var builder = WebApplication.CreateBuilder(args);
 
 // Jwt Settings
@@ -34,6 +35,16 @@ builder
     });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter("Fixed", opt =>
+    {
+        opt.Window = TimeSpan.FromDays(1);
+        opt.PermitLimit = 100;
+        opt.QueueLimit = 0;
+    });
+});
 
 // Add services to the container.
 builder
@@ -97,6 +108,7 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
